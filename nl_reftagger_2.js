@@ -36,16 +36,12 @@
 
  	 }
 
-	function loadParser() {
-		
-	        require("//raw.githubusercontent.com/openbibleinfo/Bible-Passage-Reference-Parser/master/js/nl_bcv_parser.js");
-		
-	}
-
  	/**
  	 * Shows references instead of verse numbers
  	 */
  	function showReferences() {
+
+	        require("//raw.githubusercontent.com/openbibleinfo/Bible-Passage-Reference-Parser/master/js/nl_bcv_parser.js");
 
 		var bcv = new bcv_parser;
 
@@ -57,10 +53,10 @@
 	        var dereferenties = dereferenties.split(",").join("</span><br/><span class='BijbelVers'>")
 	        $(".bericht_voll").append("<br/ ><h3 class='OpenBijbel-Heading'>Genoemde Bijbelverzen</h3><br/ ><span class='BijbelVers'>" + dereferenties + "</span>");
 
- 	}
+		   $(".OpenBijbel-Heading").css("background","#465DFF").css("font-weight","bold").css("color","white");
+		    $(".BijbelVers").css("background","#BCFFB9");
 
-    $(".OpenBijbel-Heading").css("background","#465DFF").css("font-weight","bold").css("color","white");
-    $(".BijbelVers").css("background","#BCFFB9");
+ 	}
 
 	 var refTaggerLoaded = false;
 
@@ -206,7 +202,6 @@
  	 * This function gets executed after all is loaded. This gives a main entrypoint for the code
  	 */
  	function main() {
- 		loadParser();
  		showReferences();
  		setupTopBar();
 
