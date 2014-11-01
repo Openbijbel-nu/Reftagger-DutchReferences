@@ -10,6 +10,8 @@
 		}
 	};
 
+var bcv = new bcv_parser;
+
 // using anonymous self executing function to protect the functions in their own scope
 // see: http://markdalgleish.com/2011/03/self-executing-anonymous-functions/
  (function (window, document, $, undefined) {
@@ -86,21 +88,20 @@
 		});
  	}
 
+        require("https://raw.githubusercontent.com/openbibleinfo/Bible-Passage-Reference-Parser/master/js/nl_bcv_parser.js");
+
  	/**
  	 * Shows references instead of verse numbers
  	 */
  	function showReferences() {
-        require("https://raw.githubusercontent.com/openbibleinfo/Bible-Passage-Reference-Parser/master/js/nl_bcv_parser.js");
-
-        var bcv = new bcv_parser;
 
         // specifically for articles on CIP.nl - for testing
-        var deorigineletekst = $(".bericht_voll").html();
+	        var deorigineletekst = $(".bericht_voll").html();
 
-        var dereferenties = bcv.parse(deorigineletekst).osis();
+	        var dereferenties = bcv.parse(deorigineletekst).osis();
 
-        var dereferenties = dereferenties.split(",").join("</span><br/><span class='BijbelVers'>")
-        $(".bericht_voll").append("<br/ ><h3 class='OpenBijbel-Heading'>Genoemde Bijbelverzen</h3><br/ ><span class='BijbelVers'>" + dereferenties + "</span>");
+	        var dereferenties = dereferenties.split(",").join("</span><br/><span class='BijbelVers'>")
+	        $(".bericht_voll").append("<br/ ><h3 class='OpenBijbel-Heading'>Genoemde Bijbelverzen</h3><br/ ><span class='BijbelVers'>" + dereferenties + "</span>");
 
  	}
 
