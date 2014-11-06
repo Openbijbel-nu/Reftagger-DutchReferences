@@ -50,7 +50,7 @@
 
 	        var dereferenties = bcv.parse(deorigineletekst).osis();
 
-	        var dereferenties = dereferenties.split(",").join("</span><br/><span class='BijbelVers'>")
+	        var dereferenties = dereferenties.split(",").join("</span><br/><span class='BijbelVers'>");
 	        $(".bericht_voll").append("<br/ ><h3 class='OpenBijbel-Heading'>Genoemde Bijbelverzen</h3><br/ ><span class='BijbelVers'>" + dereferenties + "</span>");
 
 		   $(".OpenBijbel-Heading").css("background","#465DFF").css("font-weight","bold").css("color","white");
